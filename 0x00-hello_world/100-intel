@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -S masm=intel $CFILE export CFILE=main
+CFILE="0-main.c" && (echo 'int main(void) { printf("Hello, World!\n"); return 0; }' > $CFILE) && gcc -S -masm=intel $CFILE -o "${CFILE%.c}.s" && rm $CFILE
